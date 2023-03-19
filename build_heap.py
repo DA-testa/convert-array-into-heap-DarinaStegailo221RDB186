@@ -33,20 +33,17 @@ def main():
     
     elif "F" in text:
         f = input()
-        test ='./test/'
-        file = test+f
-        with open(file) as x:
+        file = './tests/' + f
+        with open(file, 'r') as x:
             n = int(x.readline())
             data = list(map(int,x.readline().split()))
-        else:
-            print("Error")   
-
-    assert len(data) == n
-    swaps = build_heap(data)
-    print(len(swaps))
-    for i, j in swaps:
-        print(i, j)
-    return    
+       
+        assert len(data) == n
+        swaps = build_heap(data)
+        print(len(swaps))
+        for i, j in swaps:
+            print(i, j)
+        return    
        
 if __name__ == "__main__":
     main()
