@@ -1,4 +1,4 @@
-# python3
+# python3 Darina
 
 def build_heap(data):
     swaps = []
@@ -28,8 +28,7 @@ def main():
     
     elif "F" in text:
         f = input()
-        file = './tests/' + f
-            with open(file, 'r', encoding='utf-8') as x:
+            with open("tests/" + f, 'r', encoding='utf-8') as x:
                 n = int(x.readline())
                 data = list(map(int, x.readline().split()))
     else:
@@ -39,7 +38,7 @@ def main():
     assert data is not None and len(data) == n
     swaps = build_heap(data)
     assert len(swaps) <= n*4
-
+    
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
