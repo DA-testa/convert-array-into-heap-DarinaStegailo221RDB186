@@ -33,7 +33,7 @@ def main():
     
     elif "F" in text:
         f = input()
-        file = './tests/' + f
+        file = "tests/" + f
         with open(file, 'r') as x:
             n = int(x.readline())
             data = list(map(int,x.readline().split()))
