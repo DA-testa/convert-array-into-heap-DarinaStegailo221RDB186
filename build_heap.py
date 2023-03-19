@@ -7,7 +7,7 @@ def build_heap(data):
     for i in range (n, -1, -1):
         j = i
         while True:
-            z = (j * 2) + 1
+            z = (j*2)+1
             if z >= n:
                 break
             if z+1 < n and data[z+1] < data[z]:
@@ -28,8 +28,8 @@ def main():
     
     elif "F" in text:
         f = input()
-        if "a" not in f:
-            with open("tests/" + f, 'r', encoding='utf-8') as x:
+        file = './tests/' + f
+            with open(file, 'r', encoding='utf-8') as x:
                 n = int(x.readline())
                 data = list(map(int, x.readline().split()))
     else:
@@ -39,6 +39,7 @@ def main():
     assert data is not None and len(data) == n
     swaps = build_heap(data)
     assert len(swaps) <= n*4
+
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
