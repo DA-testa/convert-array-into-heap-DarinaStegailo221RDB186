@@ -7,18 +7,18 @@ def build_heap(data):
     for i in range (n, -1, -1):
         j = i
         while True:
-            l = (j*2) + 1
+            l = (j * 2) + 1
             if l >= n:
                 break
             if l+1 < n and data[l+l] < data[l]:
-            l = l+1
-            swaps.append((j, l))
-            data[j], data[l] = data[l], data[j]
-            j = l
-        else:
-            break
+                l = l+1
+            if data[j] > data[l]:
+                swaps.append((j, l))
+                data[j], data[l] = data[l], data[j]
+                j = l
+            else:
+                break
     return swaps
-
 
 def main():
     text = input("I or F: ")
