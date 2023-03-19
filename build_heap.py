@@ -7,15 +7,15 @@ def build_heap(data):
     for i in range (n, -1, -1):
         j = i
         while True:
-            l = (j * 2) + 1
-            if l >= n:
+            z = (j * 2) + 1
+            if z >= n:
                 break
-            if l+1 < n and data[l+l] < data[l]:
-                l = l+1
-            if data[j] > data[l]:
-                swaps.append((j, l))
-                data[j], data[l] = data[l], data[j]
-                j = l
+            if z+1 < n and data[z+1] < data[z]:
+                z = z+1
+            if data[j] > data[z]:
+                swaps.append((j, z))
+                data[j], data[z] = data[z], data[j]
+                j = z
             else:
                 break
     return swaps
