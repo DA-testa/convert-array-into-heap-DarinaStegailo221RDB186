@@ -28,16 +28,20 @@ def main():
     
     elif "F" in text:
         f = input()
-        with open("tests/" + f, 'r', encoding='utf-8') as x:
-            n = int(x.readline())
-            data = list(map(int,x.readline().split()))
-       
-        assert data is not None and len(data) == n
-        swaps = build_heap(data)
-        assert len(swaps) <= n*4
-        print(len(swaps))
-        for i, j in swaps:
-            print(i, j)
+        if "a" not in f:
+            with open("tests/" + f, 'r', encoding='utf-8') as x:
+                n = int(x.readline())
+                data = list(map(int, x.readline().split()))
+    else:
+        print("Error")
+        return 
+    
+    assert data is not None and len(data) == n
+    swaps = build_heap(data)
+    assert len(swaps) <= n*4
+    print(len(swaps))
+    for i, j in swaps:
+        print(i, j)
        
 if __name__ == "__main__":
     main()
