@@ -4,28 +4,19 @@ def build_heap(data):
     swaps = []
     n = len(data)
 
-    for i in range(n // 2 - 1, -1, -1):
-        swaps += heapify(data, i)
-    return swaps
-
-def heapify(data, i):
-    swaps = []
-    n = len(data)
-    while True:
-        min_idx = i
-        l = 2 * i + 1
-        r = 2 * i + 2
-        if l < n and data[l] < data[min_idx]:
-            min_idx = l
-        if r < n and data[r] < data[min_idx]:
-            min_idx = r
-        if i != min_idx:
-            swaps.append((i, min_idx))
-            data[i], data[min_idx] = data[min_idx], data[i]
-            i = min_idx
+    for i in range (n, -1, -1):
+        j = i
+        while True:
+            l = (j*2) + 1
+            if l >= n:
+                break
+            if l+1 < n and data[l+l] < data[l]:
+            l = l+1
+            swaps.append((j, l))
+            data[j], data[l] = data[l], data[j]
+            j = l
         else:
             break
-
     return swaps
 
 
