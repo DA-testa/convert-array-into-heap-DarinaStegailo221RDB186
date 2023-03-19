@@ -25,25 +25,19 @@ def main():
     if "I" in text:
         n = int(input())
         data = list(map(int, input().split()))
-        assert len(data) == n
-        swaps = build_heap(data)
-        print(len(swaps))
-        for i, j in swaps:
-            print(i, j)
     
     elif "F" in text:
         f = input()
-        file = "tests/" + f
-        with open(file, 'r') as x:
+        with open("tests/" + f, 'r', encoding='utf-8') as x:
             n = int(x.readline())
             data = list(map(int,x.readline().split()))
        
-        assert len(data) == n
+        assert data is not None and len(data) == n
         swaps = build_heap(data)
+        assert len(swaps) <= n*4
         print(len(swaps))
         for i, j in swaps:
             print(i, j)
-        return    
        
 if __name__ == "__main__":
     main()
